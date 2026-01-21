@@ -2,7 +2,7 @@
 
 ## Task 5
 - Status: Started
-- Notes: Began populating the Home, Filters, Models, Create, Gallery, and Profile pages with shared UI components and stub data.
+- Notes: Began aligning all main pages around a shared PageHeader layout and consistent UI-only sections.
 
 ## Task 4
 - Status: Started
@@ -38,4 +38,4 @@
 
 ## Task 5 (Completed)
 - Status: Completed
-- Notes: Implemented UI-only page layouts with shared cards, tiles, rows, and gallery viewer shell across main routes.
+- Notes: Integrated the shared PageHeader across main pages and refreshed layout consistency with shared UI components.

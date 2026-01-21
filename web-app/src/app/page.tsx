@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -51,28 +52,17 @@ const activity = [
 export default function HomePage() {
   return (
     <div className="space-y-10">
-      <section>
-        <Card>
-          <CardContent className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground">
-                UI-only scaffold · Next.js 14 + shadcn/ui
-              </div>
-              <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                Build the Runspeed AI experience with a consistent navigation shell.
-              </h1>
-              <p className="text-sm text-muted-foreground sm:text-base">
-                All routes share the global AppShell, with responsive navigation, breadcrumbs,
-                and placeholder spaces for future modules.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button>Start creating</Button>
-              <Button variant="secondary">Explore models</Button>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
+      <PageHeader
+        eyebrow="Home"
+        title="Build the Runspeed AI workspace"
+        description="Use the shared navigation shell to move across filters, models, creation, and gallery views."
+        actions={
+          <>
+            <Button>Start creating</Button>
+            <Button variant="secondary">Explore models</Button>
+          </>
+        }
+      />
 
       <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <Card>
