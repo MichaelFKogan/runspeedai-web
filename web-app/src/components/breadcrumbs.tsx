@@ -25,7 +25,10 @@ export function Breadcrumbs() {
     <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
       <ol className="flex flex-wrap items-center gap-2">
         <li>
-          <Link href="/" className="hover:text-foreground">
+          <Link
+            href="/"
+            className="rounded-sm transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
             Home
           </Link>
         </li>
@@ -35,7 +38,10 @@ export function Breadcrumbs() {
             {index === crumbs.length - 1 ? (
               <span className="text-foreground">{crumb.label}</span>
             ) : (
-              <Link href={crumb.href} className="hover:text-foreground">
+              <Link
+                href={crumb.href}
+                className="rounded-sm transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
                 {crumb.label}
               </Link>
             )}

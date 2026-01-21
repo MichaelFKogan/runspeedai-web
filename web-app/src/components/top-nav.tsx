@@ -17,17 +17,17 @@ export function TopNav() {
             <p className="text-xs text-muted-foreground">Web UI</p>
           </div>
         </div>
-        <div className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary navigation">
           {navItems.map((item) => (
             <Link
               key={item.href}
-              className="text-sm font-medium text-muted-foreground transition hover:text-foreground"
+              className="rounded-md text-sm font-medium text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               href={item.href}
             >
               {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
         <div className="hidden items-center gap-2 lg:flex">
           <Button variant="outline" size="sm">
             Buy credits

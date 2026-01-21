@@ -6,11 +6,11 @@ export function Sidebar() {
   return (
     <aside className="sticky top-24 hidden h-fit w-56 flex-col gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm lg:flex">
       <p className="text-xs font-semibold uppercase text-muted-foreground">Navigation</p>
-      <nav className="flex flex-col gap-2">
+      <nav className="flex flex-col gap-2" aria-label="Sidebar">
         {navItems.map((item) => (
           <Link
             key={item.href}
-            className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             href={item.href}
           >
             {item.label}
