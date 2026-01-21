@@ -4,5 +4,6 @@ export const navItems = [
   { label: 'Create', href: '/create' },
   { label: 'Models', href: '/models' },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Profile', href: '/profile' }
+  { label: 'Profile', href: '/profile' },
+  { label: 'UI Kit', href: '/ui' }
 ]
