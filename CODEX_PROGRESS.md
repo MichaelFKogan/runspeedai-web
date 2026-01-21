@@ -15,3 +15,11 @@
 ## Task 2 (Completed)
 - Status: Completed
 - Notes: Built the AppShell, responsive navigation, breadcrumbs, footer, and added placeholder pages for each core route.
+
+## Task 3
+- Status: Started
+- Notes: Implementing the reusable UI kit primitives, overlays, feedback elements, surfaces, and layout helpers.
+
+## Task 3 (Completed)
+- Status: Completed
+- Notes: Added a full shadcn-style UI kit (forms, overlays, feedback, surfaces, layout helpers) plus a UI showcase page and global toaster wiring.
