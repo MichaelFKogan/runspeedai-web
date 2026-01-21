@@ -7,7 +7,7 @@ const Tile = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
     <div
       ref={ref}
       className={cn(
-        'group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card text-card-foreground transition hover:border-primary/40 hover:shadow-lg',
+        'group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl focus-within:-translate-y-1 focus-within:border-primary/40 focus-within:shadow-xl',
         className
       )}
       {...props}
@@ -20,7 +20,10 @@ const TileMedia = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivE
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('relative flex h-36 w-full items-center justify-center bg-muted', className)}
+      className={cn(
+        'relative flex h-36 w-full items-center justify-center bg-muted transition duration-300 ease-out group-hover:scale-[1.02]',
+        className
+      )}
       {...props}
     />
   )

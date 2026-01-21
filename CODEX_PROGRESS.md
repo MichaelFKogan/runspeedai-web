@@ -1,5 +1,13 @@
 # Codex Progress
 
+## Task 8
+- Status: Started
+- Notes: Began UI polish pass with microinteractions, empty states, and handoff documentation updates.
+
+## Task 8 (Completed)
+- Status: Completed
+- Notes: Refined create/gallery empty states, added subtle microinteractions, and documented wiring steps in README.
+
 ## Task 7
 - Status: Started
 - Notes: Audited navigation and layout for responsive and keyboard-accessible improvements.

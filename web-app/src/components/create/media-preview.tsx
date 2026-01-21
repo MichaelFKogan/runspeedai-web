@@ -3,6 +3,7 @@
 import { ImageIcon, Trash2, VideoIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { EmptyState } from '@/components/ui/empty-state'
 
 export type MediaItem = {
   id: string
@@ -27,15 +28,11 @@ const formatBytes = (bytes: number) => {
 export function MediaPreview({ items, onRemove }: MediaPreviewProps) {
   if (items.length === 0) {
     return (
-      <div className="flex min-h-[220px] flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-border bg-muted/30 text-center text-sm text-muted-foreground">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-background shadow-sm">
-          <ImageIcon className="h-5 w-5 text-muted-foreground" />
-        </span>
-        <div className="space-y-1">
-          <p className="text-base font-medium text-foreground">No media selected</p>
-          <p className="text-sm text-muted-foreground">Upload an image or video to see previews.</p>
-        </div>
-      </div>
+      <EmptyState
+        title="No media selected"
+        description="Upload an image or video to see previews."
+        icon={<ImageIcon className="h-5 w-5 text-muted-foreground" />}
+      />
     )
   }
 
@@ -44,11 +41,15 @@ export function MediaPreview({ items, onRemove }: MediaPreviewProps) {
       {items.map((item) => (
         <div
           key={item.id}
-          className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+          className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition duration-300 ease-out hover:shadow-lg"
         >
           <div className="relative aspect-video overflow-hidden bg-muted">
             {item.kind === 'image' ? (
-              <img src={item.url} alt={item.file.name} className="h-full w-full object-cover" />
+              <img
+                src={item.url}
+                alt={item.file.name}
+                className="h-full w-full object-cover transition duration-300 ease-out group-hover:scale-[1.02]"
+              />
             ) : (
               <video src={item.url} className="h-full w-full object-cover" controls />
             )}
