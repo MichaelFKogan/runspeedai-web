@@ -1,5 +1,9 @@
 # Codex Progress
 
+## Task 4
+- Status: Started
+- Notes: Began building drag-and-drop upload, media preview components, and create page wiring.
+
 ## Task 1
 - Status: Started
 - Notes: Began scaffolding the Next.js 14 web-app foundation with Tailwind, shadcn/ui setup, and theming.
@@ -23,3 +27,7 @@
 ## Task 3 (Completed)
 - Status: Completed
 - Notes: Added a full shadcn-style UI kit (forms, overlays, feedback, surfaces, layout helpers) plus a UI showcase page and global toaster wiring.
+
+## Task 4 (Completed)
+- Status: Completed
+- Notes: Added upload dropzone + validation UI, media previews with empty/error states, and wired everything into the create page.
