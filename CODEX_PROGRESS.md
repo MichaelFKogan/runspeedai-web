@@ -1,5 +1,9 @@
 # Codex Progress
 
+## Task 5
+- Status: Started
+- Notes: Began populating the Home, Filters, Models, Create, Gallery, and Profile pages with shared UI components and stub data.
+
 ## Task 4
 - Status: Started
 - Notes: Began building drag-and-drop upload, media preview components, and create page wiring.
@@ -31,3 +35,7 @@
 ## Task 4 (Completed)
 - Status: Completed
 - Notes: Added upload dropzone + validation UI, media previews with empty/error states, and wired everything into the create page.
+
+## Task 5 (Completed)
+- Status: Completed
+- Notes: Implemented UI-only page layouts with shared cards, tiles, rows, and gallery viewer shell across main routes.
