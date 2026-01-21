@@ -1,5 +1,13 @@
 # Codex Progress
 
+## Task 6
+- Status: Started
+- Notes: Began implementing the create page generation shell, mock progress states, and result panels.
+
+## Task 6 (Completed)
+- Status: Completed
+- Notes: Added queued/running/success/failure mock transitions, generation form shell, and results UI wired into /create.
+
 ## Task 5
 - Status: Started
 - Notes: Began aligning all main pages around a shared PageHeader layout and consistent UI-only sections.
