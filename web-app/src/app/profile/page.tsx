@@ -1,3 +1,4 @@
+import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Grid } from '@/components/ui/grid'
@@ -28,13 +29,11 @@ const settings = [
 export default function ProfilePage() {
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
-        <p className="text-xs font-medium uppercase text-muted-foreground">Profile</p>
-        <h1 className="text-3xl font-semibold">Account overview</h1>
-        <p className="text-sm text-muted-foreground">
-          Track credits, generation stats, and personal settings from one hub.
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="Profile"
+        title="Account overview"
+        description="Track credits, generation stats, and personal settings from one hub."
+      />
       <Card>
         <CardHeader>
           <CardTitle>Account stats</CardTitle>

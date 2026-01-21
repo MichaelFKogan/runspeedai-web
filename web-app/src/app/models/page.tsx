@@ -1,3 +1,4 @@
+import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Grid } from '@/components/ui/grid'
@@ -43,13 +44,11 @@ const modelRows = [
 export default function ModelsPage() {
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
-        <p className="text-xs font-medium uppercase text-muted-foreground">Models</p>
-        <h1 className="text-3xl font-semibold">AI model library</h1>
-        <p className="text-sm text-muted-foreground">
-          Compare image and video models with capability tags and pricing context.
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="Models"
+        title="AI model library"
+        description="Compare image and video models with capability tags and pricing context."
+      />
       <Card>
         <CardHeader>
           <CardTitle>Featured models</CardTitle>

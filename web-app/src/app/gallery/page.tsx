@@ -1,3 +1,4 @@
+import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Grid } from '@/components/ui/grid'
@@ -46,13 +47,11 @@ const viewerDetails = [
 export default function GalleryPage() {
   return (
     <div className="space-y-6">
-      <header className="space-y-2">
-        <p className="text-xs font-medium uppercase text-muted-foreground">Gallery</p>
-        <h1 className="text-3xl font-semibold">Your generations</h1>
-        <p className="text-sm text-muted-foreground">
-          Review recent images and videos, filter favorites, and open detail views.
-        </p>
-      </header>
+      <PageHeader
+        eyebrow="Gallery"
+        title="Your generations"
+        description="Review recent images and videos, filter favorites, and open detail views."
+      />
       <section className="grid gap-4 lg:grid-cols-[1.4fr_0.8fr]">
         <Card>
           <CardHeader>
