@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { MediaPreview, MediaItem } from '@/components/create/media-preview'
 import { UploadDropzone } from '@/components/create/upload-dropzone'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 const MAX_FILES = 4
 
@@ -89,22 +90,30 @@ export default function CreatePage() {
         </p>
       </header>
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <p className="text-base font-semibold text-foreground">Prompt builder</p>
-            <p>
+        <Card>
+          <CardHeader>
+            <CardTitle>Prompt builder</CardTitle>
+            <CardDescription>
               Select a template, refine the prompt, and choose your model settings. This panel
               stays UI-only for now while we focus on upload validation and previews.
-            </p>
-            <div className="rounded-xl border border-dashed border-border bg-muted/40 p-4">
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="rounded-xl border border-dashed border-border bg-muted/40 p-4 text-sm text-muted-foreground">
               Prompt controls will appear here.
             </div>
-          </div>
-        </div>
-        <div className="space-y-4 rounded-2xl border border-border bg-card p-6 shadow-sm">
-          <UploadDropzone onFilesSelected={handleFilesSelected} errors={errors} maxFiles={MAX_FILES} />
-          <MediaPreview items={mediaItems} onRemove={handleRemoveItem} />
-        </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Upload assets</CardTitle>
+            <CardDescription>Drag-and-drop reference images or video.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <UploadDropzone onFilesSelected={handleFilesSelected} errors={errors} maxFiles={MAX_FILES} />
+            <MediaPreview items={mediaItems} onRemove={handleRemoveItem} />
+          </CardContent>
+        </Card>
       </div>
       <div className="flex flex-wrap gap-3">
         <Button>Start generation</Button>
