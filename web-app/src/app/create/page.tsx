@@ -1,12 +1,14 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Loader2, Sparkles } from 'lucide-react'
 
 import { MediaPreview, MediaItem } from '@/components/create/media-preview'
 import { UploadDropzone } from '@/components/create/upload-dropzone'
 import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { EmptyState } from '@/components/ui/empty-state'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Progress } from '@/components/ui/progress'
@@ -82,6 +84,9 @@ export default function CreatePage() {
   }, [])
 
   const isBusy = generationStatus === 'queued' || generationStatus === 'running'
+  const isInProgress = generationStatus === 'queued' || generationStatus === 'running'
+  const isFailed = generationStatus === 'failed'
+  const isSuccess = generationStatus === 'success'
   const statusLabel = useMemo(() => {
     switch (generationStatus) {
       case 'queued':
@@ -188,11 +193,10 @@ export default function CreatePage() {
     setStatusMessage('Ready to start a new generation.')
   }, [])
 
-  const resultHeadline = generationStatus === 'failed' ? 'Generation failed' : 'Generation results'
-  const resultDescription =
-    generationStatus === 'failed'
-      ? 'The mock job failed. Adjust your inputs and retry to preview a success flow.'
-      : 'Browse the latest outputs from the mock generation run.'
+  const resultHeadline = isFailed ? 'Generation failed' : 'Generation results'
+  const resultDescription = isFailed
+    ? 'The mock job failed. Adjust your inputs and retry to preview a success flow.'
+    : 'Browse the latest outputs from the mock generation run.'
 
   return (
     <div className="space-y-6">
@@ -282,7 +286,13 @@ export default function CreatePage() {
           <CardHeader>
             <CardTitle className="flex flex-wrap items-center justify-between gap-2">
               <span>Generation status</span>
-              <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                {isInProgress ? (
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                  </span>
+                ) : null}
                 {statusLabel}
               </span>
             </CardTitle>
@@ -365,12 +375,12 @@ export default function CreatePage() {
           <CardDescription>{resultDescription}</CardDescription>
         </CardHeader>
         <CardContent>
-          {generationStatus === 'failed' ? (
+          {isFailed ? (
             <div className="rounded-xl border border-dashed border-border bg-muted/40 p-6 text-sm text-muted-foreground">
               The mock model returned an error. Try toggling off failure mode and rerun to view
               success results.
             </div>
-          ) : (
+          ) : isSuccess ? (
             <div className="grid gap-4 md:grid-cols-3">
               {mockResults.map((result) => (
                 <Tile key={result.id}>
@@ -392,6 +402,23 @@ export default function CreatePage() {
                 </Tile>
               ))}
             </div>
+          ) : isInProgress ? (
+            <EmptyState
+              title="Generation in progress"
+              description="We will surface the outputs here once the mock job completes."
+              icon={<Loader2 className="h-5 w-5 animate-spin text-primary" />}
+            />
+          ) : (
+            <EmptyState
+              title="No generations yet"
+              description="Start a new generation to preview results and downloads."
+              icon={<Sparkles className="h-5 w-5 text-primary" />}
+              action={
+                <Button size="sm" variant="outline" onClick={handleStartGeneration}>
+                  Start generation
+                </Button>
+              }
+            />
           )}
         </CardContent>
       </Card>

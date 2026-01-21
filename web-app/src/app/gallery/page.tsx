@@ -1,6 +1,9 @@
+import { ImageOff } from 'lucide-react'
+
 import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { EmptyState } from '@/components/ui/empty-state'
 import { Grid } from '@/components/ui/grid'
 import { Tile, TileContent, TileFooter, TileMedia } from '@/components/ui/tile'
 
@@ -120,6 +123,25 @@ export default function GalleryPage() {
         <Button variant="outline">Sort by date</Button>
         <Button variant="ghost">Manage collections</Button>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Empty gallery state</CardTitle>
+          <CardDescription>Polished onboarding for first-time creators.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <EmptyState
+            title="No generations yet"
+            description="Once you create a run, your images and videos will appear here for easy review."
+            icon={<ImageOff className="h-5 w-5 text-muted-foreground" />}
+            action={
+              <Button size="sm" variant="outline">
+                Start creating
+              </Button>
+            }
+          />
+        </CardContent>
+      </Card>
     </div>
   )
 }

@@ -25,8 +25,8 @@ export function UploadDropzone({ onFilesSelected, errors, maxFiles = 4 }: Upload
     <div className="space-y-3">
       <div
         className={cn(
-          'group flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-muted/30 px-6 py-8 text-center text-sm text-muted-foreground transition hover:border-primary/40 hover:bg-muted/50',
-          isDragging && 'border-primary/60 bg-muted/60 text-foreground'
+          'group flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-muted/30 px-6 py-8 text-center text-sm text-muted-foreground transition-all duration-300 ease-out hover:border-primary/40 hover:bg-muted/50 hover:shadow-sm',
+          isDragging && 'border-primary/60 bg-muted/60 text-foreground shadow-sm'
         )}
         onClick={() => inputRef.current?.click()}
         onDragOver={(event) => {
@@ -52,7 +52,7 @@ export function UploadDropzone({ onFilesSelected, errors, maxFiles = 4 }: Upload
           onChange={(event) => handleFiles(event.target.files)}
         />
         <div className="flex flex-col items-center gap-3">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-background shadow-sm">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-background shadow-sm transition duration-300 ease-out group-hover:scale-105">
             <CloudUpload className="h-5 w-5 text-primary" />
           </span>
           <div className="space-y-1">
