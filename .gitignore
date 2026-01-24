@@ -31,3 +31,10 @@ pnpm-debug.log*
 
 # typescript
 *.tsbuildinfo
+
+# web-app specific
+web-app/node_modules/
+web-app/.next/
+
+**/node_modules/
+**/.next/
